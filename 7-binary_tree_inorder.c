@@ -13,13 +13,13 @@ void binary_tree_inorder(const binary_tree_t *tree, void (*func)(int))
 	if (!tree)
 		return;
 
-	if (!tree->left)
+	if (tree->left)
 		binary_tree_inorder(tree->left, func);
 
 	if (func)
 		func(tree->n);
 
-	if (!tree->right)
+	if (tree->right)
 		binary_tree_inorder(tree->right, func);
 
 
