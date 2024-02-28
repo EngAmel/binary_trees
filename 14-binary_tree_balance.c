@@ -7,13 +7,12 @@
  */
 int binary_tree_balance(const binary_tree_t *tree)
 {
-	size_t left, right;
-	int balance;
+	int left = 0, right = 0, balance;
 
 	if (tree)
 	{
-		left = binary_tree_height_balance(tree->left);
-		right = binary_tree_height_balance(tree->right);
+		left = (int)binary_tree_height_balance(tree->left);
+		right = (int)binary_tree_height_balance(tree->right);
 		balance = left - right;
 		return (balance);
 	}
@@ -32,11 +31,11 @@ size_t binary_tree_height_balance(const binary_tree_t *tree)
 
 	if (!tree)
 		return (0);
-	if (!tree->left && !tree->right)
-		return (0);
+	if (!tree->left || !tree->right)
+		return (1);
 	left = binary_tree_height_balance(tree->left);
 	right = binary_tree_height_balance(tree->right);
-	return (max_balance(left, right) + 1);
+	return (1 + max_balance(left, right));
 }
 /**
  * max_balance - fiunction that return the maximum value between two numbers
