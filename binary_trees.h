@@ -27,7 +27,7 @@ typedef struct binary_tree_s heap_t;
 
 
 /*requaired function*/
-
+size_t max(size_t first_number, size_t secand_number);
 /*tasks function*/
 binary_tree_t *binary_tree_node(binary_tree_t *parent, int value);
 binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value);
@@ -38,6 +38,6 @@ int binary_tree_is_root(const binary_tree_t *node);
 void binary_tree_preorder(const binary_tree_t *tree, void (*func)(int));
 void binary_tree_inorder(const binary_tree_t *tree, void (*func)(int));
 void binary_tree_postorder(const binary_tree_t *tree, void (*func)(int));
-
+size_t binary_tree_height(const binary_tree_t *tree);
 
 #endif
