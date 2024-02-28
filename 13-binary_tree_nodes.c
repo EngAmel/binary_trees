@@ -2,8 +2,9 @@
 
 
 /**
- * binary_tree_leaves - function that counts the nodes
+ * binary_tree_nodes - function that counts the nodes
  * with at least 1 child in a binary tree
+ *
  * @tree: is pointer to the root
  * Return: Number of the node in the tree
 */
