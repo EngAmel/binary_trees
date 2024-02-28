@@ -22,7 +22,7 @@ int main(void)
     root->right->right->left = binary_tree_node(root->right->right, 200);
     root->right->right->right = binary_tree_node(root->right->right, 512);
 
-
+    
     sibling = binary_tree_sibling(root->left);
     printf("Sibling of %d: %d\n", root->left->n, sibling->n);
     sibling = binary_tree_sibling(root->right->left);
