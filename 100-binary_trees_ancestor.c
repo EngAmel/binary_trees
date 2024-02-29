@@ -11,19 +11,50 @@
 binary_tree_t
 *binary_trees_ancestor(const binary_tree_t *first, const binary_tree_t *second)
 {
+	int depth_first, depth_second;
+
 	binary_tree_t *var_first = (binary_tree_t *)first;
 	binary_tree_t *var_second = (binary_tree_t *)second;
 
 	if (!first || !second)
 		return (NULL);
 
-	if (first == second)
-		return (var_first);
+	depth_first = tree_depth(first);
+	depth_second = tree_depth(second);
 
-	if (first->parent == second)
-		return (var_second);
+	while (depth_first > depth_second && var_first)
+	{
+		var_first = var_first->parent;
+		depth_first--;
+	}
 
-	if (second->parent == first)
-		return (var_first);
-	return (binary_trees_ancestor(first->parent, second->parent));
+	while (depth_second > depth_first && var_second)
+	{
+		var_second = var_second->parent;
+		depth_second--;
+	}
+
+	while (var_first && var_second && var_first != var_second)
+	{
+		var_first = var_first->parent;
+		var_second = var_second->parent;
+	}
+	return (var_first);
+}
+/**
+ * tree_depth - function that measures the
+ * depth of a node in a binary tree
+ * @node: the root of the tree
+ * Return: the depth of the node
+*/
+int tree_depth(const binary_tree_t *node)
+{
+	int depth = 0;
+
+	while (node)
+	{
+		node = node->parent;
+		depth++;
+	}
+	return (depth);
 }
