@@ -25,4 +25,4 @@ binary_tree_t *binary_tree_rotate_left(binary_tree_t *tree)
 	return (new_root);
 }
 /*first check if the right is NULL or not and check if the root is NULL */
-/* make the perant of the new root = NULL and thin */
+/*make the perant of the new root = NULL and thin*/
